@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>{{comp.competition.name}}</h2>
+
+
+  <h3>Teams</h3>
+  <table class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col">Short Name</th>
+        <th scope="col">Website</th>
+        <th scope="col">Email Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of comp.teams">
+        <td #myImage class="col-md-1" *ngIf="team.crestUrl; else blankRow"><img src={{team.crestUrl}} 
+          style="width: 56.75px; height: 57.083px;"
+          (error)="myImage.isBugged = true"/></td>
+        <td class="col-md-2">{{team.name}}</td>
+        <td class="col-md-2">{{team.tla}}</td>
+        <td class="col-md-2">{{team.website}}</td>      
+        <td class="col-md-2">{{team.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<ng-template #blankRow>
+  <td class="col-md-1"></td>
+</ng-template>
