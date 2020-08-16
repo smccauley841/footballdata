@@ -5,6 +5,7 @@ import { map, filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Competition } from '../_models/Competitions/competition';
 import { Comp } from '../_models/Competiton/comp';
+import { Competitions } from '../_models/Competitions/competitions';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -24,8 +25,8 @@ constructor(private http: HttpClient) {
 
 }
 
-getCompetitions(): Observable<Competition[]> {
-  return this.http.get<Competition[]>(this.baseUrl + 'v2/competitions', httpOptions)
+getCompetitions(): Observable<Competitions> {
+  return this.http.get<Competitions>(this.baseUrl + 'v2/competitions', httpOptions)
 }
 
 getCompetition(id): Observable<Comp> {

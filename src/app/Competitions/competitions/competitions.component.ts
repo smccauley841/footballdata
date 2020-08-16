@@ -1,6 +1,7 @@
 import { Component, OnInit, Pipe, PipeTransform  } from '@angular/core';
 import { Competition } from 'src/app/_models/Competitions/competition';
 import { CompetitionService } from 'src/app/_services/competition.service';
+import { Competitions } from 'src/app/_models/Competitions/competitions';
 
 @Component({
   selector: 'app-competitions',
@@ -8,7 +9,11 @@ import { CompetitionService } from 'src/app/_services/competition.service';
   styleUrls: ['./competitions.component.css']
 })
 export class CompetitionsComponent implements OnInit {
-  competitions: Competition[] = [];
+  competitions: Competitions = {
+    count: 0,
+    filters: [],
+    competitions: []
+  };
   comps: Competition[] = [];
 
   constructor(private compService: CompetitionService) { }
@@ -18,9 +23,9 @@ export class CompetitionsComponent implements OnInit {
   }
 
   loadCompetitions() {
-    this.compService.getCompetitions().subscribe((competitions: Competition[]) => {
+    this.compService.getCompetitions().subscribe((competitions: Competitions) => {
     this.competitions = competitions;
-    
+    console.log(competitions);
     });    
   }
 
