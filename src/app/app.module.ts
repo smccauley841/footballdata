@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { CompetitionsComponent } from './Competitions/competitions/competitions.component';
@@ -15,12 +16,13 @@ import { CompetitionDetailsComponent } from './Competitions/CompetitionDetails/C
       AppComponent,
       CompetitionsComponent,
       NavComponent,
-      CompetitionDetailsComponent
+      CompetitionDetailsComponent      
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes),
+      NgbModule
    ],
    providers: [],
    bootstrap: [
