@@ -51,12 +51,8 @@ export class CompetitionDetailsComponent implements OnInit {
   }
 
   loadCompetition() {
-   // this.compService.getCompetition(+this.route.snapshot.params.id).subscribe((comp: Comp) => {
-   // this.comp = comp;
-   // });
     this.teamService.getCompTeams(+this.route.snapshot.params.id).subscribe((team: Teams) => {
       this.comp = team;
-      console.log(team);
     })
 
 }
