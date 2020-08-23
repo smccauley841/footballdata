@@ -1,0 +1,16 @@
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-2 col-sm-6" *ngFor="let country of countries.api.countries" style="
+    padding-top: 15px;">
+      <div class="card bg-light mb-3 full-height text-center"  [routerLink]="['/competitions/', country.country]">
+        <img class="align-self-center" src={{country.flag}} style="width: 56.75px; height: 57.083px;">
+        <div class="card-body">
+          <p class="card-text text-dark align-self-center">{{country.country}} 
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1>Cups</h1>
+</div>

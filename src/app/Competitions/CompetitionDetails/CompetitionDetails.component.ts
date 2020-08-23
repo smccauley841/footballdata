@@ -4,6 +4,7 @@ import { Comp } from 'src/app/_models/Competiton/comp';
 import { ActivatedRoute } from '@angular/router';
 import { Teams } from 'src/app/_models/Teams/teams';
 import { TeamsService } from 'src/app/_services/teams.service';
+import { Standings } from 'src/app/_models/Standings/standings';
 
 @Component({
   selector: 'app-CompetitionDetails',

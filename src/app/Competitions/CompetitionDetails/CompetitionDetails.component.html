@@ -1,23 +1,28 @@
 <div class="container">
   <h2>{{comp.competition.name}}</h2>
 
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel title="Teams">
+      <ng-template ngbPanelContent>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let team of comp.teams" style="
+          padding-top: 15px;">
+            <div class="card bg-light mb-3 full-height">
+              <img class="align-self-center" src={{team.crestUrl}} style="width: 56.75px; height: 57.083px;">
+              <div class="card-body">
+                <p class="card-text text-dark">Club: {{team.name}}
+                  <br>
+                  Short Name: {{team.tla}} <br>
+                  Club Website: <a href={{team.website}}> {{team.website}} </a> <br>
+                  Club Email:{{team.email}}
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-panel>
 
-  <h3>Teams</h3>
-
-  <div class="row">
-  <div class="col-md-4" *ngFor="let team of comp.teams" style="
-  padding-top: 15px;">
-    <div class="card bg-light mb-3 full-height">
-      <img class="align-self-center" src={{team.crestUrl}} style="width: 56.75px; height: 57.083px;">
-      <div class="card-body">
-        <p class="card-text text-dark">Club: {{team.name}}
-          <br>
-          Short Name: {{team.tla}} <br>
-          Club Website: <a href={{team.website}}> {{team.website}} </a> <br>
-          Club Email:{{team.email}}
-          </p>
-      </div>
-    </div>
-  </div>
-</div>
+  
+</ngb-accordion>
 </div>

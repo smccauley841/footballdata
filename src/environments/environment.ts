@@ -3,9 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  apiUrl: 'https://api.football-data.org/',
-  apiToken: '2d7d242b623b4552993877c3ffce1c85'
+  production: true,
+  apiUrl: 'https://api-football-v1.p.rapidapi.com/v2/',
+  apiToken: '6b8ecc11a8msh16bea52477f0150p12bdd8jsnc10afef53458',
+  apiHost: 'api-football-v1.p.rapidapi.com'
+
 };
 
 /*

@@ -9,6 +9,7 @@ import { CompetitionsComponent } from './Competitions/competitions/competitions.
 import { appRoutes } from './routes';
 import { NavComponent } from './nav/nav.component';
 import { CompetitionDetailsComponent } from './Competitions/CompetitionDetails/CompetitionDetails.component';
+import { CountriesComponent } from './Countries/countries/countries.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CompetitionDetailsComponent } from './Competitions/CompetitionDetails/C
       AppComponent,
       CompetitionsComponent,
       NavComponent,
-      CompetitionDetailsComponent      
+      CompetitionDetailsComponent,
+      CountriesComponent   
    ],
    imports: [
       BrowserModule,

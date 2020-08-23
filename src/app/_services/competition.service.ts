@@ -6,10 +6,13 @@ import { Observable } from 'rxjs';
 import { Competition } from '../_models/Competitions/competition';
 import { Comp } from '../_models/Competiton/comp';
 import { Competitions } from '../_models/Competitions/competitions';
+import { Standings } from '../_models/Standings/standings';
+import { Leagues } from '../_models/Competitions/leagues';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'X-Auth-Token': environment.apiToken
+    'x-rapidapi-key': environment.apiToken,
+    'x-rapidapi-host' : environment.apiHost 
   })
 }
 @Injectable({
@@ -17,26 +20,18 @@ const httpOptions = {
 })
 export class CompetitionService {
   baseUrl = environment.apiUrl;
-  apiToken = environment.apiToken;
-  //headers = new HttpHeaders()
-  //          .set("X-Auth-Token", this.apiToken);
 
 constructor(private http: HttpClient) { 
 
 }
-
-getCompetitions(): Observable<Competitions> {
-  return this.http.get<Competitions>(this.baseUrl + 'v2/competitions', httpOptions)
+getCompetitions(nation): Observable<Leagues> {
+  return this.http.get<Leagues>(this.baseUrl + 'leagues/country/' + nation, httpOptions)
 }
 
-getCompetition(id): Observable<Comp> {
-  return this.http.get<Comp>(this.baseUrl + 'v2/competitions/' + id, httpOptions)
+getCompStandings(id): Observable<Leagues> {
+  return this.http.get<Leagues>(this.baseUrl + 'leagues/country/' + id, httpOptions)
 }
 }
 
-//.map(spots => {
- // return spots.filter(spot => { 
- //   return spot.lat > minlat && spot.lat < maxlat;
-//})
-//})
+
 
