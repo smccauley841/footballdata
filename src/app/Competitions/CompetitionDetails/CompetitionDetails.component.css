@@ -2,3 +2,31 @@
     height: 100%;
     padding-top: 15px;
 }
+
+
+.matchAbridged .teamName {
+    font-family: PremierSans-Bold,Arial,Helvetica Neue,Helvetica,sans-serif;
+    font-weight: 400;
+    min-width: 3.1rem;
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+.fixturesAbridged .matchAbridged time {
+    min-width: 3.8rem;
+    font-size: 1.1rem;
+    border: 1px solid #efefef;
+    line-height: 2.4rem;
+    padding: 0 .5rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.match {
+    padding: .4rem 1rem;
+    padding-top: 0.4rem;
+    padding-right: 2rem;
+    padding-bottom: 0.4rem;
+    padding-left: 1rem;
+    padding-right: 2rem;
+}

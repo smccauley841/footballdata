@@ -5,6 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Teams } from 'src/app/_models/Teams/teams';
 import { TeamsService } from 'src/app/_services/teams.service';
 import { Standings } from 'src/app/_models/Standings/standings';
+import { Competition } from 'src/app/_models/Competitions/competition';
+import { League } from 'src/app/_models/Competitions/leagues';
+import { Fixtures, Fixture } from 'src/app/_models/Fixtures/Fixtures';
 
 @Component({
   selector: 'app-CompetitionDetails',
@@ -12,50 +15,36 @@ import { Standings } from 'src/app/_models/Standings/standings';
   styleUrls: ['./CompetitionDetails.component.css']
 })
 export class CompetitionDetailsComponent implements OnInit {
-  comp: Teams = {count: 0,
-    filters:{},
-    competition:{
-      id: 0,
-      area: {
-        id:0,
-        name: ''
-      },
-    name:'',
-    plan:'',
-    currentSeason: {
-        id: 0,
-        startDate: '',
-        endDate: '',
-      },
-    numberOfAvailableSeasons: 0,
-    lastUpdated: new Date(Date.now())
-    },
-    season: {
-      id:0,
-      startDate: '',
-      endDate: '',
-      winner:{
-        id: 0,
-        name: '',
-        shortName: '',
-        tla: '',
-        crestUrl: ''
-      }
-    },
-    teams: []  };
+  standings: any[][];
+  competition: League;
+  fixtures: Fixture[];
   
   constructor(private compService: CompetitionService, private route: ActivatedRoute, 
     private teamService: TeamsService) { }
 
   ngOnInit() {
     this.loadCompetition();
+    this.loadStandings();
+    this.loadNextTenFixtures();
   }
 
   loadCompetition() {
-    this.teamService.getCompTeams(+this.route.snapshot.params.id).subscribe((team: Teams) => {
-      this.comp = team;
+    this.compService.getCompetitionDetails(+this.route.snapshot.url[2].path).subscribe((comp: Competition) => {
+      this.competition = comp.api.leagues[0];
     })
+  }
 
+  loadStandings() {
+    this.compService.getCompStandings(+this.route.snapshot.url[2].path).subscribe((standings: Standings) => {
+      this.standings = standings.api.standings;
+    })
+}
+
+loadNextTenFixtures() {
+  this.compService.getNextFixtures(+this.route.snapshot.url[2].path).subscribe((fixtures: Fixtures) => {
+    this.fixtures = fixtures.api.fixtures;
+    console.log(this.fixtures);
+  })
 }
 
 }
