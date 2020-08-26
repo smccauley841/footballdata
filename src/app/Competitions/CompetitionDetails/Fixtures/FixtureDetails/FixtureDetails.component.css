@@ -1,0 +1,52 @@
+.part-team {
+    padding: 56px 0px 50px;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.single-team {
+    display: inline-block;
+    text-align: center;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.logo {
+    height: 80px;
+    margin-bottom: 22px;
+    display: inline-block;
+    position: relative;
+}
+
+.teamName {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    color: #383838;
+    display: block;
+    opacity: .9;
+}
+
+.match-details {
+    display: inline-block;
+    text-align: center;
+}
+
+.date {
+    font-weight: 500;
+    color: #2a2a2a;
+    opacity: .6;
+    font-size: 14px;
+}

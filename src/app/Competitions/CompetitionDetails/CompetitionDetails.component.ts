@@ -1,4 +1,4 @@
-import { Component, OnInit, Pipe, PipeTransform  } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { CompetitionService } from 'src/app/_services/competition.service';
 import { Comp } from 'src/app/_models/Competiton/comp';
 import { ActivatedRoute } from '@angular/router';
@@ -18,8 +18,9 @@ export class CompetitionDetailsComponent implements OnInit {
   standings: any[][];
   competition: League;
   fixtures: Fixture[];
-  
-  constructor(private compService: CompetitionService, private route: ActivatedRoute, 
+  pFixtureId: Fixture;
+
+  constructor(private compService: CompetitionService, private route: ActivatedRoute,
     private teamService: TeamsService) { }
 
   ngOnInit() {
@@ -38,13 +39,16 @@ export class CompetitionDetailsComponent implements OnInit {
     this.compService.getCompStandings(+this.route.snapshot.url[2].path).subscribe((standings: Standings) => {
       this.standings = standings.api.standings;
     })
-}
+  }
 
-loadNextTenFixtures() {
-  this.compService.getNextFixtures(+this.route.snapshot.url[2].path).subscribe((fixtures: Fixtures) => {
-    this.fixtures = fixtures.api.fixtures;
-    console.log(this.fixtures);
-  })
-}
+  loadNextTenFixtures() {
+    this.compService.getNextFixtures(+this.route.snapshot.url[2].path).subscribe((fixtures: Fixtures) => {
+      this.fixtures = fixtures.api.fixtures;
+    })
+  }
+
+  updateChild(id) {
+    this.pFixtureId = id;
+  }
 
 }

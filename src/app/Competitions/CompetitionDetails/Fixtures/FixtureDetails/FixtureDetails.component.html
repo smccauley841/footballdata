@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="text-left part-team" style="font-size: 1.5rem">
+    <div class="single-team">
+      <div class="logo"><img src={{fixture.homeTeam.logo}} style="width: 80px"></div>
+      <div class="teamName">{{fixture.homeTeam.team_name}}</div>
+    </div>
+    <div class="match-details">
+      <div class="match-time">
+        <time class="date">{{fixture.event_date | date:'longDate'}} KO {{fixture.event_date | date:'shortTime'}}</time>
+        <div> {{fixture.venue}}</div>
+        <div> {{fixture.referee}}</div>
+      </div>
+    </div>
+    <div class="single-team">
+      <div class="logo"><img src={{fixture.awayTeam.logo}} style="width: 80px"></div>
+      <div class="teamName">{{fixture.awayTeam.team_name}}</div>
+    </div>
+  </div>
+</div>
