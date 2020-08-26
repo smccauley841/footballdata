@@ -38,24 +38,24 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-5 d-none d-md-block sidebar">
+    <div class="col-md-5 sidebar">
       <h2>Upcoming Fixtures</h2>
       <ul class="nav flex-column">
         <li *ngFor="let fixture of fixtures" class="match">
           <div class="text-left fixture" style="font-size: 1.1rem" (click)="updateChild(fixture)">
             <span><img src={{fixture.homeTeam.logo}} style="width: 20px"></span>
             <span class="teamName">{{fixture.homeTeam.team_name}}</span>
-            <time>{{fixture.event_date | date:'shortTime'}}</time>
+            <span> vs </span>
+            <span class="teamName">{{fixture.awayTeam.team_name}}</span>
             <span>
               <img src={{fixture.awayTeam.logo}} style="width: 20px">
             </span>
-            <span class="teamName">{{fixture.awayTeam.team_name}}</span>
           </div>
         </li>
       </ul>
     </div>
 
-    <div class="col-md-7 d-none d-md-block sidebar">
+    <div class="col-md-7 sidebar">
       <app-FixtureDetails [fixture]=pFixtureId></app-FixtureDetails>
     </div>
   </div>
